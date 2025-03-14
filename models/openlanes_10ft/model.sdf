@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <model name="openlanes_10ft">
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://openlanes_10ft/OpenLanes-10ft-WithVehicle-v2020B.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
+
