@@ -6,7 +6,8 @@
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://openlanes_10ft/OpenLanes-10ft-WithVehicle-v2020B.obj</uri>
+            <uri>model://openlanes_10ft/meshes/OpenLanes-10ft-WithVehicle-v2020B.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
           </mesh>
         </geometry>
       </visual>
