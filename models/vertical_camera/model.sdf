@@ -3,7 +3,7 @@
 
 
   <model name="vertical_camera">
-    <pose>0.15 0 0.15 0 0 0</pose>
+    <pose>0.10 0 0.15 0 0 0</pose>
     <link name="vertical_camera_link">
       <pose>0.01 0.025 0.025 0 1.570796327 0</pose>
       <inertial>
