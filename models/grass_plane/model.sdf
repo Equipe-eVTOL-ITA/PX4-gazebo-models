@@ -9,7 +9,7 @@
         <geometry>
           <plane>
             <normal>0 0 1</normal>
-            <size>250 250</size>
+            <size>25 25</size>
           </plane>
         </geometry>
         <surface>

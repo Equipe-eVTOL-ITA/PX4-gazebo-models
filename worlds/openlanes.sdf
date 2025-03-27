@@ -53,25 +53,24 @@
       <direction>-0.5 0.1 -0.9</direction>
     </light>
 
-    <!-- ground plane -->
     <model name="ground_plane">
       <static>true</static>
       <link name="link">
-        <collision name="collision">
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>250 250</size>
-            </plane>
-          </geometry>
-        </collision>
-        <visual name="grass">
-          <geometry>
-            <mesh>
-              <uri>file://grass_plane/meshes/grass_plane.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
+      <collision name="collision">
+        <geometry>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>25 25</size>
+        </plane>
+        </geometry>
+      </collision>
+      <visual name="grass">
+        <geometry>
+        <mesh>
+          <uri>file://grass_plane/meshes/grass_plane.dae</uri>
+        </mesh>
+        </geometry>
+      </visual>
       </link>
     </model>
 
@@ -83,12 +82,6 @@
     </gui>
 
     <!-- MODELOS EXISTENTES -->
-    <model name="takeoff_platform">
-      <include>
-        <uri>model://takeoff_platform</uri>
-        <pose>8.0 2.2 0.0 0.0 -0.0 0.0</pose>
-      </include>
-    </model>
 
     <!-- OpenLanes -->
     <model name="openlanes_10ft">
