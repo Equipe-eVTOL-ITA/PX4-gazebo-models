@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <model name="plataforma_circulo">
+    <static>true</static>
+    <link name="base_link">
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://sae/plataforma_quadrado/meshes/plataforma_quadrado.obj</uri>
+            <scale>0.8 0.8 0.8</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://sae/plataforma_quadrado/meshes/plataforma_quadrado.obj</uri>
+            <scale>0.8 0.8 0.8 </scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>
+
