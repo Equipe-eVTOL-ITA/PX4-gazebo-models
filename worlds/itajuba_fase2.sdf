@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.10">
-  <world name="itajuba_fase4">
+  <world name="itajuba_fase2">
 
     <physics type="ode">
       <max_step_size>0.004</max_step_size>
@@ -127,10 +127,38 @@
       <pose>0.0 0.0 0.0 1.57 0 0</pose>
     </include>
 
-    <model name="generated_path">
+    <model name="frente">
       <include>
-        <uri>model://generated_path</uri>
-        <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+        <uri>model://aruco0</uri>
+        <pose>0.0 0.0 0.02 0.0 0.0 0.0</pose>
+      </include>
+    </model>
+
+    <model name="esquerda">
+      <include>
+        <uri>model://aruco2</uri>
+        <pose>4.0 0.0 0.02 0.0 0.0 0.0</pose>
+      </include>
+    </model>
+
+    <model name="tras">
+      <include>
+        <uri>model://aruco1</uri>
+        <pose>4.0 4.0 0.02 0.0 0.0 0.0</pose>
+      </include>
+    </model>
+
+    <model name="direita">
+      <include>
+        <uri>model://aruco3</uri>
+        <pose>2.0 4.0 0.02 0.0 0.0 0.0</pose>
+      </include>
+    </model>
+
+    <model name="pousar">
+      <include>
+        <uri>model://aruco0</uri>
+        <pose>2.0 2.0 0.02 0.0 0.0 0.0</pose>
       </include>
     </model>
 
