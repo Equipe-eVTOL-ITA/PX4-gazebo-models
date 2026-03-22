@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="plataforma_decolagem">
+    <static>true</static>
+    <link name="Cylinder_link">
+      <visual name="Cylinder">
+        <geometry>
+          <mesh>
+            <uri>model://sae_26/plataforma_decolagem/meshes/model.dae</uri>
+            <submesh>
+              <name>Cylinder</name>
+            </submesh>
+            <scale>0.5 0.5 1.0</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>0.0 0.0 0.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://sae_26/plataforma_decolagem/meshes/base_decolagem.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <light name="Light" type="point">
+        <diffuse>1.0 1.0 1.0 1.0</diffuse>
+        <attenuation>
+          <range>40.0</range>
+          <linear>0.0</linear>
+          <quadratic>0.0</quadratic>
+          <constant>0.0</constant>
+        </attenuation>
+        <cast_shadows>true</cast_shadows>
+        <intensity>1.0</intensity>
+      </light>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://sae_26/plataforma_decolagem/meshes/model.dae</uri>
+            <scale>0.5 0.5 1.0</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <collide_bitmask>0x01</collide_bitmask>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+  </model>
+</sdf>
