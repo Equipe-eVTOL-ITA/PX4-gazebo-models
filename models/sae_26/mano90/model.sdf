@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <model name="mano90">
+    <static>true</static>
+    <link name="link">
+      <visual name="mano90">
+        <geometry>
+          <mesh>
+            <uri>model://sae_26/mano90/meshes/mano90.obj</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

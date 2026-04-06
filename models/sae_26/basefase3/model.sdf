@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <model name="basefase3">
+    <static>true</static>
+    <link name="link">
+      <visual name="basefase3">
+        <geometry>
+          <mesh>
+            <uri>model://sae_26/basefase3/meshes/basefase3.obj</uri>
+            <scale>0.5 0.5 0.5</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
