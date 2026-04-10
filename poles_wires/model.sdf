@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+
+
+<model name="poles_wires">
+      <static>true</static>
+
+      <link name="poles_wires_link">
+        <pose>0 0 0 0 0 0</pose>
+
+        <visual name="poles_wires_visual">
+          <geometry>
+            <mesh>
+              <uri>model://fase_2/meshes/fase_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+
+        <collision name="poles_wires_collision">
+          <geometry>
+            <mesh>
+              <uri>model://fase_2/meshes/fase_2.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+</sdf>
