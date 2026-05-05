@@ -11,7 +11,7 @@
         <visual name="poles_wires_visual">
           <geometry>
             <mesh>
-              <uri>model://fase_2/meshes/fase_2.obj</uri>
+              <uri>model://poles_wires/meshes/fase_2.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -19,7 +19,7 @@
         <collision name="poles_wires_collision">
           <geometry>
             <mesh>
-              <uri>model://fase_2/meshes/fase_2.obj</uri>
+              <uri>model://poles_wires/meshes/fase_2.obj</uri>
             </mesh>
           </geometry>
         </collision>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.9'>
+  <model name='x500_dual_cam'>
+    <self_collide>false</self_collide>
+    <!-- include the base vehicle -->
+    <include merge='true'>
+      <uri>x500</uri>
+    </include>
+
+    <!-- Câmera Vertical (Apontada para baixo) -->
+    <include merge="true">
+      <uri>model://vertical_camera</uri>
+    </include>
+    <joint name="vertical_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>vertical_camera_link</child>
+    </joint>
+
+    <!-- Câmera Horizontal (Apontada para frente) -->
+    <include merge="true">
+      <uri>model://horizontal_camera</uri>
+    </include>
+    <joint name="horizontal_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>horizontal_camera_link</child>
+    </joint>
+
+  </model>
+</sdf>
