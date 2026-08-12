@@ -41,7 +41,8 @@
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 20 0 0 0</pose>
-      <ambient>0.8 0.8 0.8 1</ambient>
+      <!-- <ambient> nao e elemento de <light> no SDF; era ignorado com
+           aviso. A luz ambiente da cena esta em <scene><ambient>. -->
       <diffuse>1.0 1.0 1.0 1</diffuse>
       <specular>0.2 0.2 0.2 1</specular>
       <attenuation>
@@ -91,9 +92,9 @@
     <model name='the_void'>
       <static>1</static>
       <link name='link'>
-        <pose frame=''>0 0 0.1 0 -0 0</pose>
+        <pose>0 0 0.1 0 -0 0</pose>
         <visual name='the_void'>
-          <pose frame=''>0 0 2 0 -0 0</pose>
+          <pose>0 0 2 0 -0 0</pose>
           <geometry>
             <sphere>
               <radius>0.25</radius>
@@ -110,7 +111,7 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose frame=''>-1000 -1000 0 0 0 0</pose>
+      <pose>-1000 -1000 0 0 0 0</pose>
     </model>
     <!--}-->
 

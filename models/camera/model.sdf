@@ -40,8 +40,11 @@
             <mean>0.0</mean>
             <stddev>0.001</stddev>
           </noise>
-          <Cx>320</Cx>
-          <Cy>240</Cy>
+          <!-- O ponto principal da camera ja e o centro da imagem por padrao.
+                 Havia aqui <Cx>/<Cy>, que NAO sao elementos do SDF: o Gazebo
+                 avisava e ignorava. Se algum dia for preciso um valor fora do
+                 centro, a forma correta e <lens><intrinsics><cx>/<cy> (exige
+                 tambem fx, fy e s). -->
         </camera>
         <always_on>1</always_on>
         <update_rate>30</update_rate>
