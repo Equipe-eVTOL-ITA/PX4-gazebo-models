@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.10">
-  <world name="sae1_26">
+  <world name="cbr2026_fase1">
     <physics type="ode">
       <max_step_size>0.004</max_step_size>
       <real_time_factor>1.0</real_time_factor>
@@ -124,60 +124,111 @@
 
     <!-- Models Worlds -->
 
-    <!--Plataforma de base hex 3 -->
-    <include>
-      <uri>model://sae_26/base_hex3</uri>
-      <pose> 0 -3 0.001 0 0 0</pose>
-      <scale>1 1 1</scale>
-    </include>
+    <!-- THE ARENA MODEL -->
+    <model name="arena">
+      <include>
+        <uri>model://arena_spawn</uri>
+        <!-- Pose ( x y z r p y ) -->
+        <pose>1 1 0.001 0 -0 0</pose>
+      </include>
+    </model>
 
-    <!--Plataforma de base hex 4 -->
-    <include>
-      <uri>model://sae_26/base_hex4</uri>
-      <pose>-1.2 -3 0.001 0 0 0</pose>
-      <scale>1 1 1</scale>
-    </include>
+    <!-- THE TAKEOFF PLATFORM MODEL -->
+    <model name="takeoff_platform">
+      <include>
+        <uri>model://takeoff_platform</uri>
+        <pose>8.0 2.0 0.0 0.0 -0.0 0.0</pose>
+      </include>
+    </model>
 
-    <!--Plataforma de base star 5 -->
-    <include>
-      <uri>model://sae_26/base_star5</uri>
-      <pose> 1.2 -3 0.001 0 0 0</pose>
-      <scale>1 1 1</scale>
-    </include>
+    <!-- THE BANNER MODEL -->
+    <model name="banner">
+      <include>
+        <uri>model://banner</uri>
+        <pose>1.0 -0.6 0.29 3.14 -0 1.57</pose>
+      </include>
+    </model>
 
-    <!--Plataforma de base star 3 -->
-    <include>
-      <uri>model://sae_26/base_star3</uri>
-      <pose>-0 3 0.001 0 0 0</pose>
-      <scale>1 1 1</scale>
-    </include>
+    <!-- THE WHITE BOX PLATFORM MODEL -->
+    <model name="white_box_platform">
+      <pose>8 6.0 0.75 0 0 0</pose> <!-- x y z r p y -->
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 6 1.5</size> <!-- largura profundidade altura -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 6 1.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient> <!-- cor branca -->
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
 
-    <!--Plataforma de base triangle 4 -->
-    <include>
-      <uri>model://sae_26/base_triangle4</uri>
-      <pose>1.2 3 0.001 0 0 0</pose>
-      <scale>1 1 1</scale>
-    </include>
+    <!-- THE SUSPENDED LANDING PLATFORM MODEL -->
+    <model name="suspended_landing_platform">
+      <include>
+        <uri>model://suspended_landing_platform</uri>
+        <pose>4 7 1.51 0 -0 0</pose>
+      </include>
+    </model>
 
-    <!--Plataforma de base triangle 5 -->
-    <include>
-      <uri>model://sae_26/base_triangle5</uri>
-      <pose> -1.2 3 0.001 0 0 0</pose>
-      <scale>1 1 1</scale>
-    </include>
-    
-    <!--Plataforma de base aruco -->
-    <include>
-      <uri>model://sae_26/base_hex_aruco_3</uri>
-      <pose>2.1 -1 0.001 0 0 0</pose>
-      <scale>1 1 1</scale>
-    </include>
 
-    <!--Plataforma de Takeoff -->
-    <include>
-      <uri>model://sae_26/plataforma_decolagem</uri>
-      <pose>0.0 0.0 0.0 0 0 0</pose>
-      <scale>0.5 0.5 1</scale>
-    </include>
+
+    <!-- THE LANDING PLATFORM MODEL-->
+    <model name="landing_platform_1">
+      <include>
+        <uri>model://landing_platform</uri>
+        <pose>8 5 1.51 0 -0 0</pose>
+      </include>
+    </model>
+
+
+    <model name="landing_platform_2">
+      <include>
+        <uri>model://landing_platform</uri>
+        <pose>6 6 0.01 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name="landing_platform_3">
+      <include>
+        <uri>model://landing_platform</uri>
+        <pose>2 3 0.01 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name="landing_platform_5">
+      <include>
+        <uri>model://landing_platform</uri>
+        <pose> 2 7.5 0.01 0 -0 0</pose>
+      </include>
+    </model>
+
+    <model name="landing_platform_6">
+      <include>
+        <uri>model://landing_platform</uri>
+        <pose> 5 2 0.01 0 0 0</pose>
+      </include>
+    </model>
+
+<!-- THE FIRST AID KITS -->
+<!--    <model name="first_aid_kit_1">           -->
+<!--      <include>                              -->
+<!--        <uri>model://first_aid_kit</uri>     -->
+<!--        <pose>x y z 0 0 0</pose>             -->
+<!--      </include>                             -->
+<!--    </model>                                 -->
+
   </world>
 </sdf>
