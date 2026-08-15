@@ -11,10 +11,8 @@
 <sdf version="1.9">
   <model name="labirinto_fase4">
     <static>true</static>
-    <model name="parede_000">
-      <static>true</static>
+    <link name="parede_000">
       <pose>0.4750 4.6500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -25,12 +23,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_001">
-      <static>true</static>
+    </link>
+    <link name="parede_001">
       <pose>0.0875 3.7000 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -41,12 +36,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_002">
-      <static>true</static>
+    </link>
+    <link name="parede_002">
       <pose>0.8625 3.7000 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -57,12 +49,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_003">
-      <static>true</static>
+    </link>
+    <link name="parede_003">
       <pose>0.0000 3.7875 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -73,12 +62,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_004">
-      <static>true</static>
+    </link>
+    <link name="parede_004">
       <pose>0.0000 4.5625 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -89,12 +75,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_005">
-      <static>true</static>
+    </link>
+    <link name="parede_005">
       <pose>0.9500 4.1750 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -105,12 +88,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_006">
-      <static>true</static>
+    </link>
+    <link name="parede_006">
       <pose>1.3375 3.7000 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>1.1250 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -121,12 +101,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_007">
-      <static>true</static>
+    </link>
+    <link name="parede_007">
       <pose>0.9500 1.7500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>1.9000 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -137,12 +114,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_008">
-      <static>true</static>
+    </link>
+    <link name="parede_008">
       <pose>0.0000 2.7250 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>1.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -153,12 +127,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_009">
-      <static>true</static>
+    </link>
+    <link name="parede_009">
       <pose>1.9000 1.8500 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.2000 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -169,12 +140,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_010">
-      <static>true</static>
+    </link>
+    <link name="parede_010">
       <pose>1.9000 3.1250 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>1.1500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -185,12 +153,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_011">
-      <static>true</static>
+    </link>
+    <link name="parede_011">
       <pose>1.9875 2.7000 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -201,12 +166,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_012">
-      <static>true</static>
+    </link>
+    <link name="parede_012">
       <pose>2.7625 2.7000 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -217,12 +179,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_013">
-      <static>true</static>
+    </link>
+    <link name="parede_013">
       <pose>2.3750 1.7500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -233,12 +192,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_014">
-      <static>true</static>
+    </link>
+    <link name="parede_014">
       <pose>1.9000 2.6250 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -249,12 +205,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_015">
-      <static>true</static>
+    </link>
+    <link name="parede_015">
       <pose>2.8500 2.2250 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -265,12 +218,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_016">
-      <static>true</static>
+    </link>
+    <link name="parede_016">
       <pose>2.3750 3.6500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -281,12 +231,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_017">
-      <static>true</static>
+    </link>
+    <link name="parede_017">
       <pose>1.9000 3.1750 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -297,12 +244,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_018">
-      <static>true</static>
+    </link>
+    <link name="parede_018">
       <pose>2.8500 2.7875 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -313,12 +257,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_019">
-      <static>true</static>
+    </link>
+    <link name="parede_019">
       <pose>2.8500 3.5625 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -329,12 +270,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_020">
-      <static>true</static>
+    </link>
+    <link name="parede_020">
       <pose>3.3250 3.6500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -345,12 +283,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_021">
-      <static>true</static>
+    </link>
+    <link name="parede_021">
       <pose>3.3250 1.7500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -361,12 +296,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_022">
-      <static>true</static>
+    </link>
+    <link name="parede_022">
       <pose>2.8500 2.3125 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>1.1250 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -377,12 +309,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_023">
-      <static>true</static>
+    </link>
+    <link name="parede_023">
       <pose>3.8000 1.8375 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -393,12 +322,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_024">
-      <static>true</static>
+    </link>
+    <link name="parede_024">
       <pose>3.8000 3.0875 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>1.1250 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -409,12 +335,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_025">
-      <static>true</static>
+    </link>
+    <link name="parede_025">
       <pose>3.8875 3.6500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -425,12 +348,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_026">
-      <static>true</static>
+    </link>
+    <link name="parede_026">
       <pose>4.6625 3.6500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.1750 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -441,12 +361,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_027">
-      <static>true</static>
+    </link>
+    <link name="parede_027">
       <pose>4.2750 1.7500 0.7500 0 0 0.000000</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>0.9500 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -457,12 +374,9 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
-    <model name="parede_028">
-      <static>true</static>
+    </link>
+    <link name="parede_028">
       <pose>4.7500 2.7000 0.7500 0 0 1.570796</pose>
-      <link name="link">
         <collision name="collision">
           <geometry><box><size>1.9000 0.0500 1.5000</size></box></geometry>
         </collision>
@@ -473,7 +387,6 @@
             <diffuse>0.45 0.42 0.38 1</diffuse>
           </material>
         </visual>
-      </link>
-    </model>
+    </link>
   </model>
 </sdf>
