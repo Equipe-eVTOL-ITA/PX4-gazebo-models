@@ -12,7 +12,30 @@ modelo que carrega no Gazebo, spawna, e nao voa -- ou voa e nao se parece com
 nada. Deixando a derivacao em codigo, as leis ficam escritas e conferiveis, e
 regerar depois de mexer numa premissa custa um comando.
 
-AS LEIS DE ESCALA USADAS AQUI
+DUAS FISICAS, E A PADRAO NAO E A REALISTA
+
+    --fisica x500       (PADRAO) geometria do wanda, massa/inercia/motores do
+                        x500. E o que voa com os ganhos do airframe 4001.
+    --fisica escalada   o drone pequeno de verdade: leve, com inercia pequena.
+                        Realista, e INSTAVEL com os ganhos do 4001.
+
+Medido: com a fisica escalada o drone arma, decola e sai voando -- de (0,0) para
+(-3.2, -8.5) em doze segundos. Um drone quatro vezes mais leve e duas vezes
+menor tem dinamica de atitude muito mais rapida, e os ganhos do x500 ficam
+altos demais.
+
+POR QUE A FISICA DO x500 NUM CORPO PEQUENO E ESTAVEL, e nao so "diferente":
+
+o braco do wanda e 2.2 vezes mais curto, entao o mesmo diferencial de empuxo
+produz 2.2 vezes MENOS torque. Com a inercia do x500, a aceleracao angular cai
+na mesma proporcao -- o laco de atitude responde mais DEVAGAR que no x500, e
+ganho efetivo menor e o lado seguro de errar. Fica lerdo, nao instavel.
+
+O que continua certo com a fisica do x500: as dimensoes, e portanto onde o drone
+passa e onde ele bate. E o que a fase precisa medir agora. A verossimilhanca da
+massa e a etapa seguinte, e ela exige sintonizar os ganhos.
+
+AS LEIS DE ESCALA USADAS AQUI (modo `escalada`)
 
   comprimentos      x k          poses, caixas, escalas de malha
   massa             ESCOLHIDA    ver abaixo -- NAO e k^3
@@ -44,7 +67,6 @@ do modelo tambem.
 
 from __future__ import annotations
 
-import copy
 import math
 import pathlib
 import xml.etree.ElementTree as ET
@@ -54,7 +76,7 @@ RAIZ = pathlib.Path(__file__).resolve().parent.parent
 # ── As premissas, num lugar so ──────────────────────────────────────────────
 
 K = 0.45                 # fator de escala linear
-MASSA_ALVO = 0.50        # kg, o drone inteiro (ver o cabecalho)
+MASSA_ALVO = 0.50        # kg, o drone inteiro, no modo `escalada`
 NOME = "wanda"
 
 # Do x500, lidos do model.sdf dele.
@@ -63,7 +85,9 @@ MOTOR_CONST_X500 = 8.54858e-06
 MOMENT_CONST_X500 = 0.016
 MAX_ROT_X500 = 1000.0
 
+# Preenchido pelo main(), conforme a fisica escolhida.
 RAZAO_MASSA = MASSA_ALVO / MASSA_X500
+FATOR_INERCIA = K * K       # no modo x500 vira 1.0: inercia identica
 
 
 def escalar_vetor(texto: str, n: int, fator: float) -> str:
@@ -93,8 +117,9 @@ def escalar_arvore(no: ET.Element) -> None:
             e.text = f"{float(e.text) * RAZAO_MASSA:.6g}"
 
         elif e.tag in ("ixx", "iyy", "izz", "ixy", "ixz", "iyz") and e.text:
-            # A forma nao muda: I = m * L^2 * (fator de forma).
-            e.text = f"{float(e.text) * RAZAO_MASSA * K * K:.6g}"
+            # No modo `escalada`: I = m * L^2, entao razao de massa vezes K^2.
+            # No modo `x500`: os dois fatores viram 1 e a inercia fica igual.
+            e.text = f"{float(e.text) * RAZAO_MASSA * FATOR_INERCIA:.6g}"
 
 
 def motor(indice: int, junta: str, elo: str, sentido: str) -> ET.Element:
@@ -109,7 +134,7 @@ def motor(indice: int, junta: str, elo: str, sentido: str) -> ET.Element:
         "timeConstantDown": "0.025",
         "maxRotVelocity": f"{MAX_ROT_X500:g}",
         "motorConstant": f"{MOTOR_CONST_X500 * RAZAO_MASSA:.6g}",
-        "momentConstant": f"{MOMENT_CONST_X500 * K:.6g}",
+        "momentConstant": f"{MOMENT_CONST_X500 * FATOR_MOMENTO:.6g}",
         "commandSubTopic": "command/motor_speed",
         "motorNumber": str(indice),
         "rotorDragCoefficient": f"{8.06428e-05 * RAZAO_MASSA:.6g}",
@@ -123,6 +148,27 @@ def motor(indice: int, junta: str, elo: str, sentido: str) -> ET.Element:
 
 
 def main() -> int:
+    import argparse
+
+    global RAZAO_MASSA, FATOR_INERCIA, FATOR_MOMENTO
+
+    ap = argparse.ArgumentParser(description="gera o modelo wanda a partir do x500")
+    ap.add_argument("--fisica", choices=("x500", "escalada"), default="x500",
+                    help="x500 (padrao): geometria do wanda, massa e inercia do "
+                         "x500 -- voa com os ganhos do airframe 4001. "
+                         "escalada: o drone pequeno de verdade, realista e "
+                         "instavel com esses ganhos.")
+    ns = ap.parse_args()
+
+    if ns.fisica == "x500":
+        RAZAO_MASSA = 1.0
+        FATOR_INERCIA = 1.0
+        FATOR_MOMENTO = 1.0
+    else:
+        RAZAO_MASSA = MASSA_ALVO / MASSA_X500
+        FATOR_INERCIA = K * K
+        FATOR_MOMENTO = K
+
     origem = RAIZ / "models" / "x500_base" / "model.sdf"
     arv = ET.parse(origem)
     modelo = arv.getroot().find("model")
@@ -166,9 +212,10 @@ def main() -> int:
   <version>1.0</version>
   <sdf version="1.9">model.sdf</sdf>
   <description>
-    O x500 em escala {K}, com LIDAR 2D. GERADO por tools/gerar_wanda.py --
-    nao edite a mao. Feito para a fase 4 da CBR 2026, cujo labirinto tem
-    janelas de 0.60 m.
+    O x500 em escala {K}, com LIDAR 2D. GERADO por tools/gerar_wanda.py, com
+    a fisica '{ns.fisica}'. Nao edite a mao.
+
+    Feito para a fase 4 da CBR 2026, cujo labirinto tem janelas de 0.60 m.
   </description>
 </model>
 """, encoding="utf-8")
@@ -177,10 +224,11 @@ def main() -> int:
     braco = 0.174 * K * math.sqrt(2)
     meia_helice = 0.2792307692307692 / 2 * K
     envergadura = 2 * (braco + meia_helice)
-    empuxo_por_rotor = MASSA_ALVO * 9.81 / 4
+    massa = MASSA_X500 * RAZAO_MASSA
+    empuxo_por_rotor = massa * 9.81 / 4
     rot_pairar = math.sqrt(empuxo_por_rotor / (MOTOR_CONST_X500 * RAZAO_MASSA))
 
-    print(f"  {NOME}: escala {K}, massa {MASSA_ALVO} kg")
+    print(f"  {NOME}: escala {K}, fisica '{ns.fisica}', massa {massa:.3f} kg")
     print(f"  ENVERGADURA {envergadura:.3f} m   (x500: 0.772 m)")
     print(f"  rotacao de pairar {rot_pairar:.0f} de {MAX_ROT_X500:.0f} rad/s "
           f"({100 * rot_pairar / MAX_ROT_X500:.0f}% do maximo)")

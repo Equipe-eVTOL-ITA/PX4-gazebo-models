@@ -1,1 +1,5 @@
 sdf_parsing/build/
+
+# O mundo da fase 4 e GERADO pelo simulate.sh a cada simulacao, a partir
+# do mapa da missao. Uma copia versionada dele envelheceria em silencio.
+worlds/cbr2026_fase4.sdf

@@ -19,7 +19,37 @@ O x500 tem **0,772 m** de envergadura e as janelas do labirinto da fase 4 têm
 | massa | 2,06 kg | 0,50 kg |
 | rotação de pairar | 77% do máx. | 77% do máx. |
 
-## As leis de escala, e a que não se aplica
+## Duas físicas, e a padrão não é a realista
+
+```bash
+python3 tools/gerar_wanda.py                      # física do x500  (padrão)
+python3 tools/gerar_wanda.py --fisica escalada    # o drone pequeno de verdade
+```
+
+| | geometria | massa | inércia | voa com o airframe 4001? |
+|---|---|---|---|---|
+| `x500` *(padrão)* | do wanda | 2,06 kg | do x500 | **sim** |
+| `escalada` | do wanda | 0,50 kg | pequena | **não** — instável |
+
+**Medido:** com a física escalada o drone arma, decola e sai voando — de (0,0)
+para (−3,2; −8,5) em doze segundos. Um drone quatro vezes mais leve e duas vezes
+menor tem dinâmica de atitude muito mais rápida, e os ganhos do x500 ficam altos
+demais.
+
+**Por que a física do x500 num corpo pequeno é estável, e não só "diferente":** o
+braço do wanda é 2,2 vezes mais curto, então o mesmo diferencial de empuxo produz
+2,2 vezes **menos** torque. Com a inércia do x500, a aceleração angular cai na
+mesma proporção — o laço de atitude responde mais **devagar** que no x500. Ganho
+efetivo menor é o lado seguro de errar: fica lerdo, não instável.
+
+**O que continua certo com a física do x500:** as dimensões, e portanto onde o
+drone passa e onde ele bate. É o que a fase precisa medir agora.
+
+A verossimilhança da massa é a etapa seguinte, e ela exige sintonizar os ganhos —
+`MC_ROLLRATE_P` e `MC_PITCHRATE_P` para baixo, provavelmente com os `D` junto.
+Isso não se deriva de escala: mede-se voando.
+
+## As leis de escala do modo `escalada`
 
 Comprimentos ×0,45. Inércia × (massa nova/velha) × 0,45². `motorConstant`
 ajustado para o drone pairar na **mesma fração** da rotação máxima que o x500 —
@@ -30,16 +60,6 @@ ajustado para o drone pairar na **mesma fração** da rotação máxima que o x5
 quadricóptero real de 35 cm com hélices de 6" pesa perto de 0,5 kg, e é esse o
 valor. Consequência: o `wanda` é proporcionalmente **mais pesado** que o x500,
 como todo drone pequeno de verdade é.
-
-## O que este modelo não resolve
-
-**Os ganhos de taxa do PX4.** Um drone quatro vezes mais leve e duas vezes menor
-tem dinâmica de atitude muito mais rápida, e os ganhos do airframe `4001` — que
-é do x500 — vão ficar altos.
-
-Espere oscilação de atitude no primeiro voo. O ajuste é baixar
-`MC_ROLLRATE_P` e `MC_PITCHRATE_P`, e provavelmente `MC_ROLLRATE_D` /
-`MC_PITCHRATE_D` junto. Isso não dá para derivar de escala: mede-se voando.
 
 ## Verificado
 
