@@ -1,0 +1,122 @@
+<?xml version='1.0'?>
+<sdf version='1.10'>
+  <model name='destination_box_open'>
+    <static>true</static>
+    <link name='box_link'>
+      <!-- Bottom of the box -->
+      <visual name='bottom'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.05</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.1 0.0 1</ambient>
+          <diffuse>0.8 0.1 0.0 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+        </material>
+      </visual>
+      <collision name='bottom_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Front side -->
+      <visual name='front'>
+        <pose>0 -0.225 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.05 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.1 0.0 1</ambient>
+          <diffuse>0.8 0.1 0.0 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+        </material>
+      </visual>
+      <collision name='front_collision'>
+        <pose>0 -0.225 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.05 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Back side -->
+      <visual name='back'>
+        <pose>0 0.225 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.05 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.1 0.0 1</ambient>
+          <diffuse>0.8 0.1 0.0 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+        </material>
+      </visual>
+      <collision name='back_collision'>
+        <pose>0 0.225 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.05 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Left side -->
+      <visual name='left'>
+        <pose>-0.225 0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.5 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.1 0.0 1</ambient>
+          <diffuse>0.8 0.1 0.0 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+        </material>
+      </visual>
+      <collision name='left_collision'>
+        <pose>-0.225 0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.5 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Right side -->
+      <visual name='right'>
+        <pose>0.225 0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.5 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.1 0.0 1</ambient>
+          <diffuse>0.8 0.1 0.0 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+        </material>
+      </visual>
+      <collision name='right_collision'>
+        <pose>0.225 0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.5 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>
